@@ -1,0 +1,37 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 30.0
+    sensor_timeout: 0.1
+    two_d_mode: true
+    transform_time_offset: 0.0
+    transform_timeout: 0.0
+    print_diagnostics: true
+    debug: false
+    publish_tf: true
+    
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom # Khi chưa dùng GPS thì là odom, có GPS thì sửa thành map
+
+    # ODOMETRY TỪ BÁNH XE
+    odom0: /odom
+    # Cấu hình ma trận: X, Y, Z, Roll, Pitch, Yaw, dX, dY, dZ, dRoll, dPitch, dYaw, ddX, ddY, ddZ
+    # Lấy: X, Y (vị trí), Yaw (góc), dX (vận tốc tới)
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  false, false,
+                   false, false, true,
+                   false, false, false]
+    odom0_differential: false
+
+    # IMU TỪ GY-86
+    imu0: /imu/data_filtered
+    # Lấy: dYaw (vận tốc góc) -> Quan trọng để sửa hướng đi
+    imu0_config: [false, false, false,
+                  false, false, true,
+                  false, false, false,
+                  false, false, true,
+                  false, false, false]
+    imu0_differential: false
+    imu0_remove_gravitational_acceleration: true

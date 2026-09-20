@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <ros2_control name="AckermannBot" type="system">
+        <hardware>
+            <plugin>robot_control/AckermannArduino</plugin> 
+            <param name="device">/dev/arduino</param>
+            <param name="baud_rate">115200</param>
+        </hardware>
+
+        <joint name="steering_joint">
+            <command_interface name="position"/>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="rear_axle_joint">
+            <command_interface name="velocity"/>
+            <state_interface name="velocity"/>
+            <state_interface name="position"/>
+        </joint>
+    </ros2_control>                  
+
+</robot>

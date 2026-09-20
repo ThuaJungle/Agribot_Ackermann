@@ -1,0 +1,22 @@
+teleop_twist_joy_node:
+  ros__parameters:
+    # --- CẤU HÌNH TRỤC (AXIS) ---
+    # Chế độ X-Input thường là: Trái dọc=1, Phải ngang=3
+    axis_linear: {x: 1}  
+    axis_angular: {yaw: 3} 
+    
+    # --- CẤU HÌNH TỐC ĐỘ (SCALE) ---
+    # Tốc độ tối đa khi đẩy hết cần (m/s và rad/s)
+    scale_linear: {x: 0.3}   # 0.3 m/s
+    scale_angular: {yaw: 1.0} # Tốc độ đánh lái
+    
+    # --- CẤU HÌNH NÚT AN TOÀN ---
+    # Phải giữ nút này thì xe mới chạy được
+    # 4 là nút L1 (LB), 5 là R1 (RB)
+    enable_button: 4
+    
+    # Chế độ giữ nút để turbo (tăng tốc) - Tùy chọn
+    enable_turbo_button: 5
+    scale_linear_turbo: {x: 0.6}   # Tăng tốc lên 0.6 m/s
+    scale_angular_turbo: {yaw: 1.0} # Tăng tốc đánh lái
+

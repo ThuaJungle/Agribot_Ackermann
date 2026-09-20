@@ -1,0 +1,9 @@
+<library path="ackermann_arduino">
+  <class name="robot_control/AckermannArduino"
+         type="robot_control::AckermannArduino"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Ackermann Hardware Interface using Arduino
+    </description>
+  </class>
+</library>

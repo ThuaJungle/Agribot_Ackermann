@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="AckermannBot">
+
+    <xacro:include filename="real_robot.xacro"/>                                  
+    <!-- <xacro:include filename="gazebo_control.xacro"/> -->
+    <xacro:include filename="ydlidar.xacro"/>  
+    <xacro:include filename="ros2_control.xacro"/>   
+
+</robot>

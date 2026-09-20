@@ -1,0 +1,51 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 30
+    use_sim_time: false
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    robot_controller:
+      type: bicycle_steering_controller/BicycleSteeringController
+
+robot_controller:
+  ros__parameters:
+    reference_timeout: 2.0
+    front_steering: true
+    open_loop: false
+    velocity_rolling_window_size: 10
+    use_stamped_vel: false
+
+    # Tên khớp với URDF
+    steering_joints_names: ['steering_joint']
+    traction_joints_names: ['rear_axle_joint']
+
+    # Thông số vật lý
+    wheelbase: 0.38
+    steering_track_width: 0.51 
+    traction_track_width: 0.51 
+    wheel_radius: 0.075           
+    traction_wheel_radius: 0.075  
+
+    # Odom
+    publish_rate: 30.0
+    odom_frame_id: odom
+    base_frame_id: base_link
+    enable_odom_tf: true
+
+    # Giới hạn
+    linear:
+      x:
+        has_velocity_limits: true
+        max_velocity: 1.0
+        min_velocity: -1.0
+        has_acceleration_limits: true
+        max_acceleration: 1.0
+    
+    angular:
+      z:
+        has_velocity_limits: true
+        max_velocity: 1.5
+        has_acceleration_limits: true
+        max_acceleration: 1.0
